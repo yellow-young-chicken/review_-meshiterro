@@ -1,4 +1,13 @@
 
+<% if @postimage.errors.any? %>
+  <%= @postimage.errors.count %>件のエラー
+  <ul>
+    <% @postimage.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <%end%>
+  </ul>
+  <%end%>
+
 <h1>投稿</h1>
 
 <%= form_with model: @postimage, url:postimages_path, method: :post, local:true  do |f| %>
